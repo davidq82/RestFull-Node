@@ -47,11 +47,9 @@ exports.updateUsuario = (req, res) => {
 
 // Eliminar un usuario
 exports.deleteUsuario = (req, res) => {
-  const id = req.params.id;
-  Usuario.delete(id, (err, result) => {
-    if (err) {
-      return res.status(500).json({ error: err.message });
-    }
-    res.json({ message: 'Usuario eliminado', result });
+  const { id } = req.body; // extraer id del cuerpo de la solicitud
+  Usuario.delete(id, (err) => {
+      if (err) return res.status(500).json({ error: err.message });
+      res.json({ message: 'Usuario borrado correctamente' });
   });
 };
