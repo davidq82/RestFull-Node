@@ -36,7 +36,7 @@ const Usuario = {
 
   // Eliminar un usuario
   delete: (id, callback) => {
-    const query = 'CALL EliminarUsuario(?)'; // Procedimiento almacenado
+    const query = 'CALL eliminar_usuario(?)'; // Procedimiento almacenado
     db.query(query, [id], callback);
   }
 };
